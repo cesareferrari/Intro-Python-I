@@ -121,3 +121,56 @@ print("hello"[1:])  # slice from index 1 to the end
     TypeError: 'str' object does not support item assignment
 """
 
+
+# Dictionaries
+
+# Key, value
+
+my_dict = {"a": 1, "b": 2, "c": 3}
+print(my_dict)
+
+# assign to a dictionary
+# my_dict[key] = value
+my_dict["d"] = 4
+print(my_dict)
+
+# access a key
+print(my_dict["a"])
+
+# reassign a key
+my_dict["a"] = 3000
+print(my_dict)
+
+# iterating through a dictionary
+for key in my_dict:
+    print(key)
+
+# Print keys and values:
+for key in my_dict:
+    print(f'{key} is the key and {my_dict[key]} is the value')
+
+# Older syntax, works with Python 2
+print("Using different syntax:")
+for key in my_dict:
+    print("{} is the key and {} is the value".format(key, my_dict[key]))
+
+
+# check if a key is in the dictionary (returns True or False):
+print("a" in my_dict)
+
+
+
+# Tuple, is an immutable list
+
+my_tuple = ('a', 1, 2)
+print(my_tuple)
+
+
+# It's possible to change the value of an element in a dictionary
+# inside the tuple.
+
+tuple_two = (1, 2, {"a": 1000, "b": 2000})
+
+tuple_two[2]["a"] = 3000
+
+print(tuple_two)  # prints: (1, 2, {'a': 3000, 'b': 2000})
