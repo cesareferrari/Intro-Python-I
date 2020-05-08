@@ -174,3 +174,74 @@ tuple_two = (1, 2, {"a": 1000, "b": 2000})
 tuple_two[2]["a"] = 3000
 
 print(tuple_two)  # prints: (1, 2, {'a': 3000, 'b': 2000})
+
+
+# 11_args.py
+
+# will accept any number of arguments
+def f2(*args):  # args can be called anything
+    print(args)  # args is a tuple print(type(args)) # class
+    return sum(args)
+
+
+
+print(f2(*a))
+
+# The star * will unpack a list
+
+a = [1, 2, 3, 4]
+print(*a) # will unpack a list
+
+
+# default arguments
+
+def f3(x, y=1):
+    return x + y
+
+
+# arbitrary number of keyword arguments
+def f4(**kwargs):  # double star ** keywordargs (can be anything)
+    for key, value in kwargs.items():
+        print(key, value)
+
+
+f4(**d) # similar to spread operator, destructuring dictionary
+
+
+"""
+single star will work on any number of arguments and convert them
+to tuple
+
+double star will convert keyword arguments to dictionary
+"""
+
+
+
+
+# Value vs ref
+
+def mult(a):
+    for idx in range(len(a)):
+        a[idx] *= 2
+
+my_list = [1, 2, 3, 4]
+
+mult(my_list) # mutates list in place
+print(my_list)
+
+
+
+def rename(a):
+    a = None
+
+rename(my_list)
+print(my_list)  # unchanged
+
+
+def mult_one(num):
+    num *= 2
+    return num
+
+x = 5
+mult_one(x) # returns 10
+print(x) # original variable is unchanged
